@@ -1,0 +1,1 @@
+web: bundle exec pua -C config/puma.rb
