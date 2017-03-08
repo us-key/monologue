@@ -42,7 +42,6 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Post.count', -1) do
       delete post_url(@post)
     end
-
     assert_redirected_to posts_url
   end
 end

@@ -23,7 +23,7 @@ module SessionsHelper
       end
     end
   end
-  
+
   # 永続的セッションを破棄する
   def forget(user)
     user.forget
@@ -42,6 +42,6 @@ module SessionsHelper
     session.delete(:user_id)
     @current_user = nil
   end
-  
-  
+
+
 end
