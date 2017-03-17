@@ -28,16 +28,13 @@ class PasswordResetsController < ApplicationController
       render 'edit'
     elsif @user.update_attributes(user_params)
       log_in @user
+      # 再実施できないようダイジェストを削除する
+      @user.update_attribute(:reset_digest, nil)
       flash[:success] = "Password has been reset."
       redirect_to @user
     else
       render 'edit'
     end
-  end
-
-  # パスワード再設定の期限切れの場合trueを返す
-  def password_reset_expired?
-    reset_sent_at < 2.hours.ago
   end
 
   private
