@@ -57,7 +57,8 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to posts_url, notice: 'Post was successfully created.' }
+        flash[:success] = "Post was successfully created."
+        format.html { redirect_to posts_url }
         format.json { render :no_content }
       else
         format.html { render :new }

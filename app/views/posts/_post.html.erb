@@ -1,5 +1,5 @@
 <tr id="post-<%=post.id%>" class="posts">
   <td class="content"><%=post.content%></td>
-  <td class="timestamp"><%=post.created_at%></td>
+  <td class="timestamp"><%=post.created_at.strftime("%H:%M:%S")%></td>
   <td class="content-destroy"><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 </tr>
