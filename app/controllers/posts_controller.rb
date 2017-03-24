@@ -4,7 +4,35 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @today_posts = current_user.posts
+      .where(created_at: Time.now.beginning_of_day..Time.now)
+      .paginate(page: params[:page])
+    @lastweek_posts = current_user.posts
+      .where(created_at: 7.days.ago.beginning_of_day..1.days.ago.end_of_day)
+      .paginate(page: params[:page])
+    # TODO ループ回せたらよいが一旦はゴリゴリ実装
+    @past_1_days_ago_posts = current_user.posts
+      .where(created_at: 1.days.ago.beginning_of_day..1.days.ago.end_of_day)
+      .paginate(page: params[:page])
+    @past_2_days_ago_posts = current_user.posts
+      .where(created_at: 2.days.ago.beginning_of_day..2.days.ago.end_of_day)
+      .paginate(page: params[:page])
+    @past_3_days_ago_posts = current_user.posts
+      .where(created_at: 3.days.ago.beginning_of_day..3.days.ago.end_of_day)
+      .paginate(page: params[:page])
+    @past_4_days_ago_posts = current_user.posts
+      .where(created_at: 4.days.ago.beginning_of_day..4.days.ago.end_of_day)
+      .paginate(page: params[:page])
+    @past_5_days_ago_posts = current_user.posts
+      .where(created_at: 5.days.ago.beginning_of_day..5.days.ago.end_of_day)
+      .paginate(page: params[:page])
+    @past_6_days_ago_posts = current_user.posts
+      .where(created_at: 6.days.ago.beginning_of_day..6.days.ago.end_of_day)
+      .paginate(page: params[:page])
+    @past_7_days_ago_posts = current_user.posts
+      .where(created_at: 7.days.ago.beginning_of_day..7.days.ago.end_of_day)
+      .paginate(page: params[:page])
+
   end
 
   # GET /posts/1
@@ -25,11 +53,12 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
+    @post.user_id = current_user.id
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
-        format.json { render :show, status: :created, location: @post }
+        format.html { redirect_to posts_url, notice: 'Post was successfully created.' }
+        format.json { render :no_content }
       else
         format.html { render :new }
         format.json { render json: @post.errors, status: :unprocessable_entity }
