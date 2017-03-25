@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @today_posts = current_user.posts
-      .where(created_at: Time.now.beginning_of_day..Time.now)
+      .where(created_at: Time.current.beginning_of_day..Time.current)
       .paginate(page: params[:page])
     @lastweek_posts = current_user.posts
       .where(created_at: 7.days.ago.beginning_of_day..1.days.ago.end_of_day)
@@ -61,7 +61,7 @@ class PostsController < ApplicationController
         format.html { redirect_to posts_url }
         format.json { render :no_content }
       else
-        format.html { render :new }
+        format.html { render :index }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
