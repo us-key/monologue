@@ -150,7 +150,7 @@ aside {
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
-  margin-bottom: 15px;
+  //margin-bottom: 15px;
   @include box_sizing;
 }
 
@@ -174,7 +174,7 @@ input {
 }
 
 .checkbox {
-  margin-top: -10px;
+  //margin-top: -10px;
   margin-bottom: 10px;
   span {
     margin-left: 20px;
@@ -185,6 +185,22 @@ input {
 #session_remember_me {
   width: auto;
   margin-left: 0;
+}
+
+// bootstrap
+.form-inline {
+  div {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+.panel-body {
+  padding: 0px;
+}
+
+.panel {
+  margin-bottom: 0px;
 }
 
 /* posts */
@@ -198,6 +214,10 @@ input {
   }
   .timestamp {
     color: $gray-light;
+    width: 30px;
+  }
+  .content-destroy {
+    width: 30px;
   }
 }
 
@@ -206,4 +226,8 @@ aside {
     height: 100px;
     margin-bottom: 5px;
   }
+}
+
+.pain {
+  padding: 1px;
 }
