@@ -166,6 +166,17 @@ input {
   }
 }
 
+#post-form {
+  width: 100%;
+  .field {
+    width: 100%;
+  }
+}
+
+#submit-post {
+  width: 30px;
+}
+
 .field_with_errors {
   @extend .has-error;
   .form-control {
@@ -185,22 +196,6 @@ input {
 #session_remember_me {
   width: auto;
   margin-left: 0;
-}
-
-// bootstrap
-.form-inline {
-  div {
-    display: inline-block;
-    vertical-align: middle;
-  }
-}
-
-.panel-body {
-  padding: 0px;
-}
-
-.panel {
-  margin-bottom: 0px;
 }
 
 /* posts */
@@ -230,4 +225,25 @@ aside {
 
 .pain {
   padding: 1px;
+}
+
+/* bootstrap上書き */
+.form-inline {
+  div {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+.panel-body {
+  padding: 0px;
+}
+
+.panel {
+  margin-bottom: 0px;
+}
+
+.alert {
+  margin-left: -15px;
+  margin-right: -15px;
 }

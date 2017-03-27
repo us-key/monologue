@@ -11,12 +11,17 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :content, :class => 'sr-only'%>
-    <%= f.text_field :content, :class => 'form-control input-sm', :placeholder => 'content'%>
-  </div>
-
-  <div class="actions">
-    <%= f.submit :class => 'btn btn-sm'%>
-  </div>
+  <table id="post-form">
+    <td id="input-content">
+      <div class="field">
+        <%= f.label :content, :class => 'sr-only'%>
+        <%= f.text_field :content, :class => 'input-sm', :placeholder => 'content'%>
+      </div>
+    </td>
+    <td id="submit-post">
+      <div class="actions">
+        <%= f.submit "Post!", :class => 'btn btn-sm'%>
+      </div>
+    </td>
+  </table>
 <% end %>
