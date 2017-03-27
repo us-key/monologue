@@ -15,7 +15,18 @@
           // 入力中の文字数
           $('input#post_content').on('load keydown keyup keypress change', function(){
               var inLength = $(this).val().length;
-              $('span#input-length').text(inLength)
+              $('span#input-length').text(inLength);
+              if (inLength > 100) {
+                $('p#char-count').css(
+                  color : "red",
+                  font-weight : "bold"
+                );
+              } else {
+                $('p#char-count').css(
+                  color : "black",
+                  font-weight : "normal"
+                );
+              }
           })
       });
   </script>
