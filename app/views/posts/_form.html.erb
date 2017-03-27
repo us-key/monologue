@@ -10,7 +10,15 @@
       </ul>
     </div>
   <% end %>
-
+  <script type="text/javascript">
+      $(function(){
+          // 入力中の文字数
+          $('input#post_content').on('load keydown keyup keypress change', function(){
+              var inLength = $(this).val().length;
+              $('span#input-length').text(inLength)
+          })
+      });
+  </script>
   <table id="post-form">
     <td id="input-content">
       <div class="field">
@@ -24,4 +32,5 @@
       </div>
     </td>
   </table>
+  <p id="char-count"><span id="input-length">0</span>/100</p>
 <% end %>
