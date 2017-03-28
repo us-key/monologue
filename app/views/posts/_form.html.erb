@@ -31,17 +31,29 @@
     });
   </script>
   <table id="post-form">
-    <td id="input-content">
-      <div class="field">
-        <%= f.label :content, :class => 'sr-only'%>
-        <%= f.text_field :content, :class => 'input-sm', :placeholder => 'content'%>
-      </div>
-    </td>
-    <td id="submit-post">
-      <div class="actions">
-        <%= f.submit "Post!", :class => 'btn btn-sm'%>
-      </div>
-    </td>
+    <tr>
+      <td id="input-content">
+        <div class="field">
+          <%= f.label :content, :class => 'sr-only'%>
+          <%= f.text_field :content, :class => 'input-sm', :placeholder => 'content'%>
+        </div>
+      </td>
+      <td id="submit-post">
+        <div class="actions">
+          <%= f.submit "Post!", :class => 'btn btn-sm'%>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="field">
+          <%= f.label :label_list, :class => 'sr-only'%>
+          <%= text_field_tag 'post[label_list]', post.label_list.join(','), :placeholder => 'tag', "data-role" => "tagsinput"%>
+        </div>
+      </td>
+      <td>
+        <p id="char-count"><span id="input-length">0</span>/100</p>
+      </td>
+    </tr>
   </table>
-  <p id="char-count"><span id="input-length">0</span>/100</p>
 <% end %>
