@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
   belongs_to :user
-  has_many :tags
+  acts_as_taggable_on :labels
+  acts_as_taggable
   default_scope -> {order(created_at: :desc)}
   validates :content, length: { maximum: 100},
                       presence: true
@@ -8,4 +9,5 @@ class Post < ApplicationRecord
 
   def new
   end
+
 end
