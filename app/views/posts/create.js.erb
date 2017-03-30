@@ -4,6 +4,8 @@ $('#today-posts-table').prepend(
 $('#post_content').val('');
 $('span.tag').remove();
 $('span#input-length').text('0');
+// flashメッセージを出力し、3秒で消す
 <%flash.each do |message_type, message|%>
   $('#flash-message').html('<div class="alert alert-<%=message_type%>"><%=message%></div>');
 <%end%>
+$('.alert').delay(2500).fadeOut(500);
