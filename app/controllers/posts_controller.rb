@@ -59,7 +59,8 @@ class PostsController < ApplicationController
       if @post.save
         flash[:success] = "Post was successfully created."
         format.html { redirect_to posts_url }
-        format.json { render :no_content }
+        #format.json { render :no_content }
+        format.js
       else
         format.html { render :index }
         format.json { render json: @post.errors, status: :unprocessable_entity }
@@ -103,4 +104,5 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:content, :user_id, :label_list)
     end
+
 end

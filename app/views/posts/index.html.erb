@@ -9,7 +9,7 @@
       <div class="panel-heading">Today (<%=@today_posts.count%>)</div>
       <% if @today_posts.any?%>
         <table class="table">
-          <tbody>
+          <tbody id="today-posts-table">
             <%=render @today_posts%>
           </tbody>
         </table>
