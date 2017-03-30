@@ -1,0 +1,6 @@
+$("#today-posts-table").prepend(
+  "<%= j render @post%>"
+)
+$("#post_content").val('');
+$("span.tag").remove();
+$('span#input-length').text('0');
