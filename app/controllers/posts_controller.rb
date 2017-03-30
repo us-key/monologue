@@ -58,7 +58,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.save
         flash[:success] = "Post was successfully created."
-        #format.html { redirect_to posts_url }
+        format.html { redirect_to posts_url }
         #format.json { render :no_content }
         format.js
       else
@@ -104,4 +104,5 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:content, :user_id, :label_list)
     end
+
 end

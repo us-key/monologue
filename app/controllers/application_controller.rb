@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
 
   before_action :logged_in_user
+  after_action :discard_flash_if_xhr
 
   # ログイン済みユーザーかどうか確認
   def logged_in_user
@@ -13,4 +14,8 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  protected
+    def discard_flash_if_xhr
+      flash.discard if request.xhr?
+    end
 end
