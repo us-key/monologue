@@ -1,3 +1,9 @@
+<script type="text/javascript">
+  // bootstrap-tagsinputで生成されたtag入力欄にtabindexを設定する
+  $(function(){
+  $('div.bootstrap-tagsinput').children('input').attr('tabindex', '2');
+});
+</script>
 <% provide(:title, "Posts by " + @current_user.name) %>
 <div class="row">
   <!-- 左ペイン -->

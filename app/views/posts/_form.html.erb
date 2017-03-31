@@ -35,12 +35,12 @@
       <td id="input-content">
         <div class="field">
           <%= f.label :content, :class => 'sr-only'%>
-          <%= f.text_field :content, :class => 'input-sm', :placeholder => 'content'%>
+          <%= f.text_field :content, :class => 'input-sm', :placeholder => 'content', :tabindex => '1'%>
         </div>
       </td>
       <td id="submit-post">
         <div class="actions">
-          <%= f.submit "Post!", :class => 'btn btn-sm'%>
+          <%= f.submit "Post!", :class => 'btn btn-sm', :tabindex => '3'%>
         </div>
       </td>
     </tr>
