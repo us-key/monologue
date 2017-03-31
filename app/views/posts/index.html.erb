@@ -12,15 +12,15 @@
     <%= render 'form', post: Post.new %>
     <!-- 本日のメモ -->
     <div class="panel panel-default">
-      <div class="panel-heading">Today (<%=@today_posts.count%>)</div>
-      <% if @today_posts.any?%>
-        <table class="table">
-          <tbody id="today-posts-table">
+      <div class="panel-heading">Today <span class="badge" id="today-posts-count"><%=@today_posts.count%></span></div>
+      <table class="table">
+        <tbody id="today-posts-table">
+          <% if @today_posts.any?%>
             <%=render @today_posts%>
-          </tbody>
-        </table>
-        <%=will_paginate @today_posts%>
-      <%end%>
+          <%end%>
+        </tbody>
+      </table>
+      <%=will_paginate @today_posts%>
     </div>
   </div>
   <!-- 右ペイン -->
