@@ -25,7 +25,8 @@
   </div>
   <!-- 右ペイン -->
   <div class="col-md-6 col-xs-12 pain">
-
+    <!-- 検索フォーム -->
+    <%=render 'search_form', tags: ActsAsTaggableOn::Tag.most_used(10)%>
     <!-- 過去1週間のメモ -->
 
     <div class="panel panel-default">
