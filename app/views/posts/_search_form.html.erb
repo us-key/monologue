@@ -7,38 +7,56 @@
   });
 </script>
 <%=form_tag('#', :class => 'form-inline', :remote => true) do%>
-  <!-- タグ利用数上位10件を取得し利用数とともに表示 -->
   <table id="search-post-form">
-    <tr>
-      <td>
-        <div class="field">
-          <%=label_tag(:tags, "Tags")%>
-          <%=text_field_tag(:tags, "", 'data-role' => 'tagsinput', :class => 'search-tags')%>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        利用タグTO10
-      </td>
-    </tr>
-    <tr class="tags">
-      <td>
-        <%tags.each do |tag|%>
+    <tbody>
+      <tr>
+        <td>
+          <div class="field search-form-inline">
+            <%=label_tag(:created_from, "created")%>
+            <%=date_field(:created_from, "", :class => 'input-sm')%>〜
+            <%=date_field(:created_to, "", :class => 'input-sm')%>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="field search-form-inline">
+            <%=label_tag(:content, "content")%>
+            <%=text_field_tag(:content, "", :class => 'input-sm')%>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="field">
+            <%=label_tag(:tags, "Tags")%>
+            <%=text_field_tag(:tags, "", 'data-role' => 'tagsinput', :class => 'search-tags')%>
+          </div>
+        </td>
+      </tr>
+      <!-- タグ利用数上位10件を取得し利用数とともに表示 -->
+      <tr>
+        <td><p>利用タグTO10</p></td>
+      </tr>
+      <tr class="tags">
+        <td>
+          <div class="field">
+            <%tags.each do |tag|%>
               <button class="btn btn-xs btn-primary tag-btn" value="<%=tag%>">
                 <%=tag%><span class="badge"><%=tag.taggings_count%></span>
               </button>
-        <%end%>
-      </td>
-    </tr>
-    <tr>
-      <td id="search-post">
-        <div class="actions">
-          <%=submit_tag("Search")%>
-        </div>
-      </td>
-    </tr>
-
+            <%end%>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td id="search-post">
+          <div class="actions">
+            <%=submit_tag("Search")%>
+          </div>
+        </td>
+      </tr>
+    </tbody>
   </table>
 
 <%end%>
