@@ -6,40 +6,33 @@
     })
   });
 </script>
-<%=form_tag('#', :class => 'form-inline', :remote => true) do%>
+<%=form_tag('posts/search', :class => 'form-inline', :remote => true) do%>
   <table id="search-post-form">
     <tbody>
       <tr>
-        <td>
-          <div class="field search-form-inline">
-            <%=label_tag(:created_from, "created")%>
-            <%=date_field(:created_from, "", :class => 'input-sm')%>〜
-            <%=date_field(:created_to, "", :class => 'input-sm')%>
-          </div>
+          <td><%=label_tag(:created_from, "created:")%></td>
+          <td><%=date_field(:created_from, "", :class => 'input-sm')%></td>
+          <td>〜</td>
+          <td><%=date_field(:created_to, "", :class => 'input-sm')%></td>
+      </tr>
+      <tr>
+        <td><%=label_tag(:content, "content:")%></td>
+        <td colspan="3">
+          <%=text_field_tag(:content, "", :class => 'input-sm')%>
         </td>
       </tr>
       <tr>
-        <td>
-          <div class="field search-form-inline">
-            <%=label_tag(:content, "content")%>
-            <%=text_field_tag(:content, "", :class => 'input-sm')%>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <div class="field">
-            <%=label_tag(:tags, "Tags")%>
-            <%=text_field_tag(:tags, "", 'data-role' => 'tagsinput', :class => 'search-tags')%>
-          </div>
+        <td><%=label_tag(:tags, "tags:")%></td>
+        <td colspan="3">
+          <%=text_field_tag(:tags, "", 'data-role' => 'tagsinput', :class => 'search-tags')%>
         </td>
       </tr>
       <!-- タグ利用数上位10件を取得し利用数とともに表示 -->
       <tr>
-        <td><p>利用タグTO10</p></td>
+        <td colspan="4"><p>利用タグTO10:</p></td>
       </tr>
       <tr class="tags">
-        <td>
+        <td colspan="4">
           <div class="field">
             <%tags.each do |tag|%>
               <button class="btn btn-xs btn-primary tag-btn" value="<%=tag%>">
@@ -52,7 +45,7 @@
       <tr>
         <td id="search-post">
           <div class="actions">
-            <%=submit_tag("Search")%>
+            <%=submit_tag("Search", :class => 'btn btn-sm')%>
           </div>
         </td>
       </tr>

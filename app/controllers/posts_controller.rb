@@ -68,6 +68,28 @@ class PostsController < ApplicationController
     end
   end
 
+  # POST /posts/search
+  # POST /posts/search.json
+  def search
+    created_from = params[:created_from]
+    created_to = params[:created_to]
+    tags = params[:tags]
+    logger.debug(created_from)
+    logger.debug(created_to)
+    logger.debug(tags)
+    @posts = current_user.posts
+    logger.debug("posts:" + @posts.to_s)
+    @posts = @posts.created_between(created_from, created_to)
+      .find_by_tag(tags)
+    #@posts = @posts.created_between('2017-04-01', '2017-04-30')
+
+    logger.debug("posts:" + @posts.to_s)
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
