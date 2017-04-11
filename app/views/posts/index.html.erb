@@ -22,10 +22,6 @@
       </table>
       <%=will_paginate @today_posts%>
     </div>
-  </div>
-  <!-- 右ペイン -->
-  <div class="col-md-6 col-xs-12 pain">
-
     <!-- 過去1週間のメモ -->
 
     <div class="panel panel-default">
@@ -121,6 +117,25 @@
 
       </div>
 
+    </div>
+  </div>
+  <!-- 右ペイン -->
+  <div class="col-md-6 col-xs-12 pain">
+    <!-- 検索フォーム -->
+    <div class="panel panel-default">
+      <div class="panel-heading">Search: condition</div>
+      <%=render 'search_form', tags: ActsAsTaggableOn::Tag.most_used(10)%>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading" data-toggle="collapse" href="post-search-result">
+        Search: result
+      </div>
+      <div class="panel-body panel-collapse collapse in" id="post-search-result">
+        <table class="table">
+          <tbody id="post-search-result-table">
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>

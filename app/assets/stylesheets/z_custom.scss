@@ -155,7 +155,7 @@ input, textarea, select, .uneditable-input {
 }
 
 input {
-  height: auto !important;
+//  height: auto !important;
 }
 
 #error_explanation {
@@ -201,6 +201,13 @@ input {
 #char-count {
   text-align: right;
   margin-right: 5px;
+}
+
+div.search-form-inline {
+  display: inline-block;
+  input {
+    width: auto;
+  }
 }
 
 /* posts */
