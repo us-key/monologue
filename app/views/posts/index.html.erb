@@ -127,8 +127,8 @@
       <%=render 'search_form', tags: ActsAsTaggableOn::Tag.most_used(10)%>
     </div>
     <div class="panel panel-default">
-      <div class="panel-heading" data-toggle="collapse" href="post-search-result">
-        Search: result
+      <div class="panel-heading" data-toggle="collapse" href="#post-search-result">
+        Search: result<span class="badge" id="search-result-count">0</span>
       </div>
       <div class="panel-body panel-collapse collapse in" id="post-search-result">
         <table class="table">

@@ -1,3 +1,4 @@
 $('#post-search-result-table').html(
   '<%=j render @posts%>'
 )
+$('span#search-result-count').html('<%=@posts.count%>');
