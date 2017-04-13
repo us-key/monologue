@@ -9,11 +9,11 @@ class Post < ApplicationRecord
 
   scope :created_between, -> from, to {
     if from[0] != "" && to[0] != ""
-      where(created_at: from..to)
+      where(created_at: from[0]..(to[0] + ' 23:59:59'))
     elsif from[0] != ""
-      where('created_at >= ?', from)
+      where('created_at >= ?', from[0])
     elsif to[0] != ""
-      where('created_at <= ?', to)
+      where('created_at <= ?', (to[0] + ' 23:59:59'))
     end
   }
 
@@ -21,6 +21,10 @@ class Post < ApplicationRecord
     if tags.present?
       tagged_with(tags, any: true)
     end
+  }
+
+  scope :content_like, -> content {
+    where('content like ?', "%#{content}%") if content.present?
   }
 
   def new

@@ -1,3 +1,8 @@
-$('#post-search-result-table').html(
-  '<%=j render @posts%>'
-)
+var searchResultHtml = "";
+var count = "0";
+<%if @posts.exists? %>
+  searchResultHtml = '<%=j render @posts%>';
+  count = <%=@posts.count(:all)%>
+<%end%>
+$('#post-search-result-table').html(searchResultHtml);
+$('span#search-result-count').html(count.toString());
