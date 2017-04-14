@@ -33,6 +33,17 @@ class PostsController < ApplicationController
       .where(created_at: 7.days.ago.beginning_of_day..7.days.ago.end_of_day)
       .paginate(page: params[:page])
 
+    # ログインユーザーの利用タグTOP10を取得しHashにセット
+    con = ActiveRecord::Base.connection
+    sqlStr = "select t.name, count(t.name) as cnt
+              from posts p, tags t, taggings ts
+              where p.id=ts.taggable_id
+              and    ts.tag_id=t.id
+              and user_id=#{current_user.id}
+              group by t.name
+              order by count(t.name) desc
+              limit 10;"
+    @tags = con.select_all(sqlStr).to_hash
   end
 
   # GET /posts/1
