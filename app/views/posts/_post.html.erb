@@ -1,9 +1,11 @@
-<tr id="post-<%=post.id%>" class="posts">
-  <td class="content">
+<tr id="post-<%=post.id%>" class="posts posts-content">
+  <td class="content" colspan="3">
     <%=post.content%>
-    <div class="tags">
-      <%=render 'posts/posts_tag_list', tag_list: post.label_list%>
-    </div>
+  </td>
+</tr>
+<tr id="tags-<%=post.id%>" class="posts posts-info">
+  <td class="tags">
+    <%=render 'posts/posts_tag_list', tag_list: post.label_list%>
   </td>
   <td class="timestamp"><%=post.created_at.strftime("%H:%M")%></td>
   <td class="content-destroy"><%= link_to 'Del', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
