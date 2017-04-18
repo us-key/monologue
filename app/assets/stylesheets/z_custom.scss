@@ -203,10 +203,44 @@ input {
   margin-right: 5px;
 }
 
-div.search-form-inline {
-  display: inline-block;
-  input {
-    width: auto;
+/* search-form */
+form.form-inline {
+  padding: 3px;
+  table#search-post-form {
+    table-layout: fixed;
+    tr.search-tbl-header {
+      height: 0px;
+      td {
+        line-height: 0px;
+      }
+      td.col1 {
+        width: 65px;
+      }
+      td.col2 {
+        width: 70px;
+      }
+      td.col4 {
+        width: 20px;
+      }
+      td.col6 {
+        width: 70px;
+      }
+    }
+    td#search-post {
+      vertical-align: bottom;
+    }
+  }
+  p {
+    margin-bottom: 0px;
+  }
+  .label-center {
+    text-align: center;
+  }
+  .search-btn {
+    width: 70px;
+  }
+  .tag-btn {
+    margin: 0.5px;
   }
 }
 
