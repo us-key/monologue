@@ -203,29 +203,70 @@ input {
   margin-right: 5px;
 }
 
-div.search-form-inline {
-  display: inline-block;
-  input {
-    width: auto;
+/* search-form */
+form.form-inline {
+  padding: 3px;
+  table#search-post-form {
+    table-layout: fixed;
+    tr.search-tbl-header {
+      height: 0px;
+      td {
+        line-height: 0px;
+      }
+      td.col1 {
+        width: 65px;
+      }
+      td.col2 {
+        width: 70px;
+      }
+      td.col4 {
+        width: 20px;
+      }
+      td.col6 {
+        width: 70px;
+      }
+    }
+    td#search-post {
+      vertical-align: bottom;
+    }
+  }
+  p {
+    margin-bottom: 0px;
+  }
+  .label-center {
+    text-align: center;
+  }
+  .search-btn {
+    width: 70px;
+  }
+  .tag-btn {
+    margin: 0.5px;
   }
 }
 
 /* posts */
 
 .posts {
-  td {
-    padding: 10px 0;
-    border-top: 1px solid #e8e8e8;
+  td.content {
+    border-top: 2px solid #e8e8e8;
+    padding: 2px 8px 1px 8px;
+
   }
-  .content {
-  }
-  .timestamp {
+}
+.posts-info {
+  background: #fcfcfc;
+  td.timestamp {
     color: $gray-light;
     width: 30px;
   }
-  .content-destroy {
+  td.content-destroy {
     width: 30px;
   }
+  td.tags, td.timestamp, td.content-destroy {
+    border-top-color: #ffffff;
+    padding: 1px 8px 2px 8px;
+  }
+
 }
 
 aside {

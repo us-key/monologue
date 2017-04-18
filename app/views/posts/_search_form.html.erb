@@ -9,43 +9,48 @@
 <%=form_tag('posts/search', :class => 'form-inline', :remote => true) do%>
   <table id="search-post-form">
     <tbody>
-      <tr>
-          <td><%=label_tag(:created_from, "created:")%></td>
-          <td><%=date_field(:created_from, "", :class => 'input-sm')%></td>
-          <td>〜</td>
-          <td><%=date_field(:created_to, "", :class => 'input-sm')%></td>
+      <!-- レイアウト調整のための空行 -->
+      <tr class="search-tbl-header">
+        <td class="col1">&nbsp;<!--1:固定幅--></td>
+        <td class="col2">&nbsp;<!--2:固定幅--></td>
+        <td class="col3">&nbsp;<!--3:比率幅--></td>
+        <td class="col4">&nbsp;<!--4:固定幅--></td>
+        <td class="col5">&nbsp;<!--5:比率幅--></td>
+        <td class="col6">&nbsp;<!--6:固定幅--></td>
       </tr>
       <tr>
-        <td><%=label_tag(:content, "content:")%></td>
-        <td colspan="3">
+          <td><p>created:</p></td>
+          <td colspan="2"><%=date_field(:created_from, "", :class => 'input-sm')%></td>
+          <td><p class="label-center">〜</p></td>
+          <td colspan="2"><%=date_field(:created_to, "", :class => 'input-sm')%></td>
+      </tr>
+      <tr>
+        <td><p>content:</p></td>
+        <td colspan="5">
           <%=text_field_tag(:content, "", :class => 'input-sm')%>
         </td>
       </tr>
       <tr>
-        <td><%=label_tag(:tags, "tags:")%></td>
-        <td colspan="3">
+        <td><p>tags:</p></td>
+        <td colspan="4">
           <%=text_field_tag(:tags, "", 'data-role' => 'tagsinput', :class => 'search-tags')%>
+        </td>
+        <td id="search-post">
+            <%=submit_tag("Search", :class => 'btn btn-sm search-btn')%>
         </td>
       </tr>
       <!-- タグ利用数上位10件を取得し利用数とともに表示 -->
       <tr>
-        <td colspan="4"><p>利用タグTO10:</p></td>
+        <td colspan="6"><p>利用タグTO10:</p></td>
       </tr>
       <tr class="tags">
-        <td colspan="4">
+        <td colspan="6">
           <div class="field">
             <%@tags.each do |tag|%>
               <button class="btn btn-xs btn-primary tag-btn" value="<%=tag["name"]%>">
                 <%=tag["name"]%><span class="badge"><%=tag["cnt"]%></span>
               </button>
             <%end%>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td id="search-post">
-          <div class="actions">
-            <%=submit_tag("Search", :class => 'btn btn-sm')%>
           </div>
         </td>
       </tr>
