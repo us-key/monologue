@@ -12,31 +12,36 @@
     <%= render 'form', post: Post.new %>
     <!-- 本日のメモ -->
     <div class="panel panel-default">
-      <div class="panel-heading">Today <span class="badge" id="today-posts-count"><%=@today_posts.count%></span></div>
-      <table class="table">
-        <tbody id="today-posts-table">
-          <% if @today_posts.any?%>
-            <%=render @today_posts%>
-          <%end%>
-        </tbody>
-      </table>
-      <%=will_paginate @today_posts%>
+      <div class="panel-heading"><a data-toggle="collapse" href="#today-posts">Today</a> <span class="badge" id="today-posts-count"><%=@today_posts.count%></span></div>
+      <div class="panel-body panel-collapse collapse in" id="today-posts">
+        <table class="table">
+          <tbody id="today-posts-table">
+            <% if @today_posts.any?%>
+              <%=render @today_posts%>
+            <%end%>
+          </tbody>
+        </table>
+        <%=will_paginate @today_posts%>
+      </div>
     </div>
     <!-- 過去1週間のメモ -->
 
     <div class="panel panel-default">
-      <div class="panel-heading" data-toggle="collapse" href="#last-week-posts">Last 7 days (<%=@lastweek_posts.count%>)</div>
-      <div class="panel-body panel-collapse collapse in" id="last-week-posts">
+      <div class="panel-heading">
+        <a data-toggle="collapse" href="#last-week-posts">Last 7 days</a>
+        <span class="badge" id="last-week-count"><%=@lastweek_posts.count%></span>
+      </div>
+      <div class="panel-body panel-collapse collapse" id="last-week-posts">
         <% if @lastweek_posts.any?%>
           <!-- TODO 日付ごとの表示。ループ回したい -->
           <div class="panel panel-default">
-            <div class="panel-heading" data-toggle="collapse" href="#past-1-days-ago-posts">
-              <%=Date.today-1%>
+            <div class="panel-heading">
+              <a data-toggle="collapse" href="#past-1-days-ago-posts"><%=Date.today-1%></a>
               <span class="badge">
                 <%=@past_1_days_ago_posts.count%>
               </span>
             </div>
-            <div class="panel-body panel-collapse collapse in" id="past-1-days-ago-posts">
+            <div class="panel-body panel-collapse collapse" id="past-1-days-ago-posts">
               <table class="table">
                 <tbody>
                   <%=render @past_1_days_ago_posts%>
@@ -45,13 +50,13 @@
             </div>
           </div>
           <div class="panel panel-default">
-            <div class="panel-heading" data-toggle="collapse" href="#past-2-days-ago-posts">
-              <%=Date.today-2%>
+            <div class="panel-heading">
+              <a data-toggle="collapse" href="#past-2-days-ago-posts"><%=Date.today-2%></a>
               <span class="badge">
                 <%=@past_2_days_ago_posts.count%>
               </span>
             </div>
-            <div class="panel-body panel-collapse collapse in" id="past-2-days-ago-posts">
+            <div class="panel-body panel-collapse collapse" id="past-2-days-ago-posts">
               <table class="table">
                 <tbody>
                   <%=render @past_2_days_ago_posts%>
@@ -60,13 +65,13 @@
             </div>
           </div>
           <div class="panel panel-default">
-            <div class="panel-heading" data-toggle="collapse" href="#past-3-days-ago-posts">
-              <%=Date.today-3%>
+            <div class="panel-heading">
+              <a data-toggle="collapse" href="#past-3-days-ago-posts"><%=Date.today-3%></a>
               <span class="badge">
                 <%=@past_3_days_ago_posts.count%>
               </span>
             </div>
-            <div class="panel-body panel-collapse collapse in" id="past-3-days-ago-posts">
+            <div class="panel-body panel-collapse collapse" id="past-3-days-ago-posts">
               <table class="table">
                 <tbody>
                   <%=render @past_3_days_ago_posts%>
@@ -75,13 +80,13 @@
             </div>
           </div>
           <div class="panel panel-default">
-            <div class="panel-heading" data-toggle="collapse" href="#past-4-days-ago-posts">
-              <%=Date.today-4%>
+            <div class="panel-heading">
+              <a data-toggle="collapse" href="#past-4-days-ago-posts"><%=Date.today-4%></a>
               <span class="badge">
                 <%=@past_4_days_ago_posts.count%>
               </span>
             </div>
-            <div class="panel-body panel-collapse collapse in" id="past-4-days-ago-posts">
+            <div class="panel-body panel-collapse collapse" id="past-4-days-ago-posts">
               <table class="table">
                 <tbody>
                   <%=render @past_4_days_ago_posts%>
@@ -90,13 +95,13 @@
             </div>
           </div>
           <div class="panel panel-default">
-            <div class="panel-heading" data-toggle="collapse" href="#past-5-days-ago-posts">
-              <%=Date.today-5%>
+            <div class="panel-heading">
+              <a data-toggle="collapse" href="#past-5-days-ago-posts"><%=Date.today-5%></a>
               <span class="badge">
                 <%=@past_5_days_ago_posts.count%>
               </span>
             </div>
-            <div class="panel-body panel-collapse collapse in" id="past-5-days-ago-posts">
+            <div class="panel-body panel-collapse collapse" id="past-5-days-ago-posts">
               <table class="table">
                 <tbody>
                   <%=render @past_5_days_ago_posts%>
@@ -105,13 +110,13 @@
             </div>
           </div>
           <div class="panel panel-default">
-            <div class="panel-heading" data-toggle="collapse" href="#past-6-days-ago-posts">
-              <%=Date.today-6%>
+            <div class="panel-heading">
+              <a data-toggle="collapse" href="#past-6-days-ago-posts"><%=Date.today-6%></a>
               <span class="badge">
                 <%=@past_6_days_ago_posts.count%>
               </span>
             </div>
-            <div class="panel-body panel-collapse collapse in" id="past-6-days-ago-posts">
+            <div class="panel-body panel-collapse collapse" id="past-6-days-ago-posts">
               <table class="table">
                 <tbody>
                   <%=render @past_6_days_ago_posts%>
@@ -120,13 +125,13 @@
             </div>
           </div>
           <div class="panel panel-default">
-            <div class="panel-heading" data-toggle="collapse" href="#past-7-days-ago-posts">
-              <%=Date.today-7%>
+            <div class="panel-heading">
+              <a data-toggle="collapse" href="#past-7-days-ago-posts"><%=Date.today-7%></a>
               <span class="badge">
                 <%=@past_7_days_ago_posts.count%>
               </span>
             </div>
-            <div class="panel-body panel-collapse collapse in" id="past-7-days-ago-posts">
+            <div class="panel-body panel-collapse collapse" id="past-7-days-ago-posts">
               <table class="table">
                 <tbody>
                   <%=render @past_7_days_ago_posts%>
@@ -148,8 +153,9 @@
       <%=render 'search_form'%>
     </div>
     <div class="panel panel-default">
-      <div class="panel-heading" data-toggle="collapse" href="#post-search-result">
-        Search: result<span class="badge" id="search-result-count">0</span>
+      <div class="panel-heading">
+        <a data-toggle="collapse" href="#post-search-result">Search: result </a>
+        <span class="badge" id="search-result-count">0</span>
       </div>
       <div class="panel-body panel-collapse collapse in" id="post-search-result">
         <table class="table">
