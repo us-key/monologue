@@ -247,20 +247,26 @@ form.form-inline {
 /* posts */
 
 .posts {
-  td {
-    padding: 10px 0;
-    border-top: 1px solid #e8e8e8;
+  td.content {
+    border-top: 2px solid #e8e8e8;
+    padding: 2px 8px 1px 8px;
+
   }
 }
 .posts-info {
   background: #fcfcfc;
-  .timestamp {
+  td.timestamp {
     color: $gray-light;
     width: 30px;
   }
-  .content-destroy {
+  td.content-destroy {
     width: 30px;
   }
+  td.tags, td.timestamp, td.content-destroy {
+    border-top-color: #ffffff;
+    padding: 1px 8px 2px 8px;
+  }
+
 }
 
 aside {
