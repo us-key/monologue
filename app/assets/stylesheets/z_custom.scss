@@ -257,12 +257,16 @@ form.form-inline {
   background: #fcfcfc;
   td.timestamp {
     color: $gray-light;
-    width: 30px;
+    width: 56px;
+  }
+  td.search-timestamp {
+    color: $gray-light;
+    width: 122px;
   }
   td.content-destroy {
-    width: 30px;
+    width: 38px;
   }
-  td.tags, td.timestamp, td.content-destroy {
+  td.tags, td.timestamp, td.content-destroy, td.search-timestamp {
     border-top-color: #ffffff;
     padding: 1px 8px 2px 8px;
   }
