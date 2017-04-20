@@ -41,8 +41,7 @@ class PostsController < ApplicationController
               and    ts.tag_id=t.id
               and user_id=#{current_user.id}
               group by t.name
-              order by count(t.name) desc
-              limit 10;"
+              order by count(t.name) desc;"
     @tags = con.select_all(sqlStr).to_hash
   end
 

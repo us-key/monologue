@@ -28,7 +28,30 @@
           });
         }
       })
+      // bootstrap-tagsinputで生成されたtag入力欄にtabindexを設定する
+      $('div.add-tags').children('div.bootstrap-tagsinput').children('input').attr({
+        tabindex: '2',
+        id: 'input-tags'
+      });
+      startSuggest();
     });
+
+    function startSuggest() {
+      new Suggest.Local(
+        "input-tags", // 入力のエレメントID
+        "suggest", // 補完候補表示エリアのID
+        getTagsList(), // 補完候補の検索対象配列
+        {dispMax: 10} // オプション
+      );
+    }
+
+    function getTagsList() {
+      var returnTagsList = [];
+      <%@tags.each do |tag|%>
+        returnTagsList.push('<%=tag["name"]%>');
+      <%end%>
+      return returnTagsList;
+    }
   </script>
   <table id="post-form">
     <tr>
@@ -49,6 +72,8 @@
         <div class="field add-tags">
           <%= f.label :label_list, :class => 'sr-only'%>
           <%= text_field_tag 'post[label_list]', post.label_list.join(','), :placeholder => 'tag', "data-role" => "tagsinput"%>
+          <!-- 補完候補を表示するエリア -->
+          <div id="suggest" style="display:none;"></div>
         </div>
       </td>
       <td>
