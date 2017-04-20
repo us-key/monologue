@@ -90,6 +90,12 @@ p {
     text-decoration: none;
   }
 }
+.pos-left {
+  float: right;
+  padding-top: 15px;
+  padding-right: 10px;
+  vertical-align: middle;
+}
 
 /* footer */
 
@@ -309,4 +315,12 @@ aside {
   margin-right: -15px;
   margin-bottom: 3px;
   padding: 3px;
+}
+
+.dropdown-menu {
+  min-width: inherit;
+}
+
+.dropdown-menu > li > a {
+  padding: 3px 8px;
 }
