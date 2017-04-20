@@ -1,7 +1,7 @@
 var searchResultHtml = "";
 var count = "0";
 <%if @posts.exists? %>
-  searchResultHtml = '<%=j render @posts%>';
+  searchResultHtml = '<%=j render :partial => "posts_searched", :collections => @posts%>';
   count = <%=@posts.count(:all)%>
 <%end%>
 $('#post-search-result-table').html(searchResultHtml);

@@ -90,6 +90,12 @@ p {
     text-decoration: none;
   }
 }
+.pos-left {
+  float: right;
+  padding-top: 15px;
+  padding-right: 10px;
+  vertical-align: middle;
+}
 
 /* footer */
 
@@ -257,12 +263,16 @@ form.form-inline {
   background: #fcfcfc;
   td.timestamp {
     color: $gray-light;
-    width: 30px;
+    width: 56px;
+  }
+  td.search-timestamp {
+    color: $gray-light;
+    width: 122px;
   }
   td.content-destroy {
-    width: 30px;
+    width: 38px;
   }
-  td.tags, td.timestamp, td.content-destroy {
+  td.tags, td.timestamp, td.content-destroy, td.search-timestamp {
     border-top-color: #ffffff;
     padding: 1px 8px 2px 8px;
   }
@@ -305,4 +315,12 @@ aside {
   margin-right: -15px;
   margin-bottom: 3px;
   padding: 3px;
+}
+
+.dropdown-menu {
+  min-width: inherit;
+}
+
+.dropdown-menu > li > a {
+  padding: 3px 8px;
 }
