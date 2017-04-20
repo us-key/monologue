@@ -46,10 +46,11 @@
       <tr class="tags">
         <td colspan="6">
           <div class="field">
-            <%@tags.each do |tag|%>
+            <%@tags.each_with_index do |tag, i|%>
               <button class="btn btn-xs btn-primary tag-btn" value="<%=tag["name"]%>">
                 <%=tag["name"]%><span class="badge"><%=tag["cnt"]%></span>
               </button>
+              <%break if i == 9%>
             <%end%>
           </div>
         </td>
