@@ -3,10 +3,17 @@
     $('button.tag-btn').on('click', function(){
       var tagName = this.value;
       $('input.search-tags').data('tagsinput').add(tagName);
-    })
+    });
+    $('a#show-more-tags-link').on('click', function(){
+      $('div.more-tags').each(function(index, element){
+        // div.more-tagsを削除し子のbuttonは残す
+        $(element).children('button').unwrap();
+      });
+      $(this).css('display', 'none');
+    });
   });
 </script>
-<%=form_tag('posts/search', :class => 'form-inline', :remote => true) do%>
+<%=form_tag('posts/search', :remote => true) do%>
   <table id="search-post-form">
     <tbody>
       <!-- レイアウト調整のための空行 -->
@@ -47,10 +54,18 @@
         <td colspan="6">
           <div class="field">
             <%@tags.each_with_index do |tag, i|%>
+              <%if i >= 10%>
+                <div class="more-tags">
+              <%end%>
               <button class="btn btn-xs btn-primary tag-btn" value="<%=tag["name"]%>">
                 <%=tag["name"]%><span class="badge"><%=tag["cnt"]%></span>
               </button>
-              <%break if i == 9%>
+              <%if i >= 10%>
+                </div>
+              <%end%>
+            <%end%>
+            <%if @tags.length > 10%>
+              <a id="show-more-tags-link">more...</a>
             <%end%>
           </div>
         </td>

@@ -210,9 +210,10 @@ input {
 }
 
 /* search-form */
-form.form-inline {
+form {
   padding: 3px;
   table#search-post-form {
+    width: 100%;
     table-layout: fixed;
     tr.search-tbl-header {
       height: 0px;
@@ -248,6 +249,10 @@ form.form-inline {
   .tag-btn {
     margin: 0.5px;
   }
+}
+
+div.more-tags {
+  display: none;
 }
 
 /* posts */
